@@ -34,13 +34,13 @@ int main (void)
         printf("Cannot open a file.");
         return -1;
     }
-    fprintf(fp,"\"matrix\";\"first vector(matrix) size\";\"second matrix size\";\"time\"\n");
+    fprintf(fp,"\"first_vector(matrix)_size\";\"second_vector_size\";\"ddot_time\";\"dgemv_time\"");
 
     clock_t start;
 
     srand(time(NULL));
 
-    for(int j = 1; j <= 50; j++) {
+    for(int j = 1; j <= 10; j++) {
         size_t size = (size_t)j*1000; /// add rand ()
         gsl_vector *vector1 = gsl_vector_calloc(size);
         gsl_vector *vector2 = gsl_vector_calloc(size);
@@ -69,7 +69,7 @@ int main (void)
             gsl_blas_ddot(vector1, vector2, result_ddot);
 
 
-            fprintf(fp,"true;%ld;%ld;%.5f\n",size,size,(clock()-start)/(double)CLOCKS_PER_SEC);
+            fprintf(fp,"%ld;%ld;%.5f;",size,size,(clock()-start)/(double)CLOCKS_PER_SEC);
 
             ////gsl_blas_dgemv
 
@@ -77,7 +77,7 @@ int main (void)
 
             gsl_blas_dgemv(CblasNoTrans, 1.0, matrix, vector2 ,0.0, result_dgemv);
 
-            fprintf(fp,"true;%ld;%ld;%.5f\n",size,size,(clock()-start)/(double)CLOCKS_PER_SEC);
+            fprintf(fp,"%.5f\n",(clock()-start)/(double)CLOCKS_PER_SEC);
 
             printf("%d.%d\n", j , i);
 
