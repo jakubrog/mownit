@@ -1,0 +1,5 @@
+"/Users/jakubrog/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/183.5429.37/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/jakubrog/mownit/lab2/test
+-- Could NOT find PkgConfig (missing: PKG_CONFIG_EXECUTABLE) 
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/jakubrog/mownit/lab2/test/cmake-build-debug
