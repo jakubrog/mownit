@@ -36,17 +36,12 @@ int main (void)
     }
     fprintf(fp,"\"matrix\";\"first vector(matrix) size\";\"second matrix size\";\"time\"\n");
 
-    clock_t r_time[3] = {0, 0, 0};
-    struct tms* tms_time[3];
+    clock_t start;
 
-    for (int i = 0; i < 3; i++) {
-        tms_time[i] = malloc(sizeof(struct tms*));
-    }
+    srand(time(NULL));
 
-    int current_time = 0;
-
-    for(int j = 0; j < 150; j++) {
-        size_t size = 14; /// add rand ()
+    for(int j = 1; j <= 50; j++) {
+        size_t size = (size_t)j*1000; /// add rand ()
         gsl_vector *vector1 = gsl_vector_calloc(size);
         gsl_vector *vector2 = gsl_vector_calloc(size);
         gsl_matrix *matrix = gsl_matrix_calloc(size, size); // matrix must be square
@@ -58,40 +53,33 @@ int main (void)
 
 
         for(size_t k = 0; k < size;k++) {
-            gsl_vector_set(vector1, k, k*k+1);// add rand
-            gsl_vector_set(vector2, k, k/2+2);
+            gsl_vector_set(vector1, k, rand());// add rand
+            gsl_vector_set(vector2, k, rand());
             gsl_matrix_set(matrix, 0, k , gsl_vector_get(vector1, k) );
         }
 
 
         for (int i = 0; i < 10; i++) {
-            ///gsl_blas_ddot
-            current_time = 0 ;
 
-            r_time[current_time] = times(tms_time[current_time]);
-            current_time++;
+
+            ///gsl_blas_ddot
+
+            start = clock();
 
             gsl_blas_ddot(vector1, vector2, result_ddot);
 
-            r_time[current_time] = times(tms_time[current_time]);
-            current_time++;
 
-
-            fprintf(fp,"false;%ld;%ld;%f\n",size,size,time_diff(r_time[current_time-2], r_time[current_time-1]));
+            fprintf(fp,"true;%ld;%ld;%.5f\n",size,size,(clock()-start)/(double)CLOCKS_PER_SEC);
 
             ////gsl_blas_dgemv
-            current_time = 0;
-            r_time[current_time] = times(tms_time[current_time]);
-            current_time++;
 
+            start = clock();
 
             gsl_blas_dgemv(CblasNoTrans, 1.0, matrix, vector2 ,0.0, result_dgemv);
 
+            fprintf(fp,"true;%ld;%ld;%.5f\n",size,size,(clock()-start)/(double)CLOCKS_PER_SEC);
 
-            r_time[current_time] = times(tms_time[current_time]);
-            current_time++;
-
-            fprintf(fp,"true;%ld;%ld;%f\n",size,size,time_diff(r_time[current_time-2], r_time[current_time-1]));
+            printf("%d.%d\n", j , i);
 
             if(*result_ddot != gsl_vector_get(result_dgemv, 0)){ /// temporary looking for error
                 printf("Different results\n");
