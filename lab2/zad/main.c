@@ -40,7 +40,7 @@ int main (void)
 
     srand(time(NULL));
 
-    for(int j = 1; j <= 10; j++) {
+    for(int j = 1; j <= 50; j++) {
         size_t size = (size_t)j*1000; /// add rand ()
         gsl_vector *vector1 = gsl_vector_calloc(size);
         gsl_vector *vector2 = gsl_vector_calloc(size);
