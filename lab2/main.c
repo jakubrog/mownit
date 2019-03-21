@@ -34,13 +34,13 @@ int main (void)
         printf("Cannot open a file.");
         return -1;
     }
-    fprintf(fp,"\"first_vector(matrix)_size\";\"second_vector_size\";\"ddot_time\";\"dgemv_time\"");
+    fprintf(fp,"\"first_vector_matrix_size\";\"second_vector_size\";\"ddot_time\";\"dgemv_time\"\n");
 
     clock_t start;
 
     srand(time(NULL));
 
-    for(int j = 1; j <= 50; j++) {
+    for(int j = 1; j <= 4; j++) {
         size_t size = (size_t)j*1000; /// add rand ()
         gsl_vector *vector1 = gsl_vector_calloc(size);
         gsl_vector *vector2 = gsl_vector_calloc(size);
@@ -81,7 +81,7 @@ int main (void)
 
             printf("%d.%d\n", j , i);
 
-            if(*result_ddot != gsl_vector_get(result_dgemv, 0)){ /// temporary looking for error
+            if(*result_ddot != gsl_vector_get(result_dgemv, 0)){ ///looking for error
                 printf("Different results\n");
                 return 1;
             }
@@ -98,4 +98,3 @@ int main (void)
 
     return 0;
 }
-
