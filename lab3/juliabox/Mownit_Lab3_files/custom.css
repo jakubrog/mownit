@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en" class="wf-inactive"><head>
+    <meta charset="utf-8">
+    <title>Julia Computing Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" src="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css" integrity="sha256-rnmbX+ZXZml9xbNUKt/qXfgpCi6zLJX7qqR+7vX/1ZY=" crossorigin="anonymous">
+    <script type="text/javascript" src="//use.typekit.net/cpz5ogz.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+    <style>
+        .u-vskip-half {
+            height: 0.5rem;
+            width: 0;
+        }
+        .btn-social>:first-child {
+            top: 5px;
+            bottom: 5px;
+        }
+        .fa-email {
+            color: #345773;
+            background:white;
+            background-image:url(/static/4dots.svg);
+            border:#4285F4;
+            background-size:22px;
+            background-repeat:no-repeat;
+            background-position:center;
+            background-color: white;
+        }
+        .fa-google {
+            background:white;
+            background-image:url(https://developers.google.com/identity/images/g-logo.png);
+            border:#4285F4;
+            background-size:22px;
+            background-repeat:no-repeat;
+            background-position:center;
+        }
+        .fa-github {
+            color: #444;
+            background:white;
+            background-image:url(/dex/static/img/github-icon.svg);
+            border:#4285F4;
+            background-size:22px;
+            background-repeat:no-repeat;
+            background-position:center;
+            background-color: white;
+        }
+        .fa-linkedin {
+            color:#007bb6;
+            background-image:url(/dex/static/img/linkedin-icon.svg);
+            border:#4285F4;
+            background-size:38px;
+            background-repeat:no-repeat;
+            background-position:center;
+            background-color: white;
+        }
+        .btn-google {
+            color: #fff;
+            background-color: #4285F4;
+            border-color: rgba(0,0,0,0.2);
+        }
+        .btn-google:hover {
+            color:#fff;
+            background-color:#3954fe;
+            border-color:rgba(0,0,0,0.2)
+        }
+        .btn-social>:first-child {
+            top: 0px;
+            bottom: 0px;
+        }
+        .btn-any {
+            color: #fff;
+            background-color: #444;
+            border-color: rgba(0,0,0,0.2);
+        }
+        .btn-any:hover {
+            color: #fff;
+            background-color: #777;
+            border-color: rgba(0,0,0,0.2);
+        }
+        .btn-email {
+            color: #fff;
+            background-color: #345773;
+            border-color: rgba(0,0,0,0.2);
+        }
+        .btn-email:hover {
+            color: #fff;
+            background-color: #2A4A61;
+            border-color: rgba(0,0,0,0.2);
+        }
+        .fa-any {
+            width: 32px;
+            height: 32px;
+            padding-left: 0px;
+            background-color:white;
+            position:absolute;
+            left:0;
+            font-size: 1.3em;
+            color: black;
+        }
+    </style>
+</head>
+
+
+<body style="background:none transparent; font-family: ff-enzo-web; font-size: 14px; font-weight: 400;">
+  <div class="sign-in-container" style="width: 190px;height: 155px;"><div class="theme-panel u-vbox u-items-center">
+    <div>
+    
+      
+        <div class="theme-form-row">
+          <a href="/dex/auth/local?req=glyykq3jcw4knujgdp2w27gpl" target="_parent">
+            <button id="Email-btn" class="btn btn-block btn-social btn-email">
+              <span class="fab fa-email"></span>Log in with Email
+            </button>
+          </a>
+        </div>
+        <div class="u-vskip-half"></div>
+      
+    
+      
+        <div class="theme-form-row">
+          <a href="/dex/auth/github?req=glyykq3jcw4knujgdp2w27gpl" target="_parent">
+            <button id="GitHub-btn" class="btn btn-block btn-social btn-github">
+              <span class="fab fa-github"></span>Log in with GitHub
+            </button>
+          </a>
+        </div>
+        <div class="u-vskip-half"></div>
+      
+    
+      
+        <div class="theme-form-row">
+          <a href="/dex/auth/google?req=glyykq3jcw4knujgdp2w27gpl" target="_parent">
+            <button id="Google-btn" class="btn btn-block btn-social btn-google">
+              <span class="fab fa-google"></span>Log in with Google
+            </button>
+          </a>
+        </div>
+        <div class="u-vskip-half"></div>
+      
+    
+      
+        <div class="theme-form-row">
+          <a href="/dex/auth/linkedin?req=glyykq3jcw4knujgdp2w27gpl" target="_parent">
+            <button id="LinkedIn-btn" class="btn btn-block btn-social btn-linkedin">
+              <span class="fab fa-linkedin"></span>Log in with LinkedIn
+            </button>
+          </a>
+        </div>
+        <div class="u-vskip-half"></div>
+      
+    
+      
+    
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+
+</html>
+
