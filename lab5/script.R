@@ -57,3 +57,4 @@ plot(naive_data, type='l', lwd = 2, ylab = "Time", xlab = "Size", main = "Compar
 lines(better_data, lwd = 2, col = "Orange")
 lines(blas_data, lwd = 2, col = "darkgreen")
 legend("topleft", col = c("red", "orange", "darkgreen"), legend = c("naive", "better", "blas"), lty = 1 )
+
