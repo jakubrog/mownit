@@ -13,19 +13,18 @@ maxIt = 20 # max iterations
 h = 1e-6 # step size for numerical derivative
 eps = 1e-3 # max error
 
-# function to create fractal
+
 def f(z):
     return z*z*z*z*z - 5.0
 
-# draw the fractal
+
 for y in range(imgy):
     zy = y * (yb - ya) / (imgy - 1) + ya
     for x in range(imgx):
         zx = x * (xb - xa) / (imgx - 1) + xa
         z = complex(zx, zy)
         for i in range(maxIt):
-            # complex numerical derivative
-            dz = (f(z + complex(h, h)) - f(z)) / complex(h, h)
+            dz = (f(z + complex(h, h)) - f(z)) / complex(h, h) # aprox derivative
             z0 = z - f(z) / dz # Newton iteration
             if abs(z0 - z) < eps: # stop when close enough to any root
                 break
